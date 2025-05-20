@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 5: Интеграция с внешними системами и обмен данными в 1С:Предприятие</title>
+    <style>
+       body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Шапка */
+        header {
+            background-color: #F0E68C;
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+        /* Горизонтальное меню */
+        nav.top-menu {
+            background-color: #FFD700;
+            overflow: hidden;
+			position: relative; /* или absolute */
+			z-index: 10;
+        }
+        nav.top-menu a {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav.top-menu a:hover {
+            background-color: #555;
+        }
+        /* Боковое меню */
+        .sidebar {
+            width: 200px;
+            background-color: #EEE8AA;
+            position: fixed;
+            top: 200px; /* высота шапки + топ-меню */
+            bottom: 0;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 12px;
+            text-decoration: none;
+        }
+        .sidebar a:hover { background-color: #ddd; }
+        /* Основной контент */
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .content p {
+            text-align: justify;
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+        .content img {
+            max-width: 100%;
+            display: block;
+            margin: 20px auto;
+        }
+        .nav-buttons {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .nav-buttons a {
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 0 10px;
+        }
+        .nav-buttons a:hover { background-color: #444; }
+		/* Стили модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    margin: 5% auto;
+    display: block;
+    max-width: 90%;
+    height: auto;
+    box-shadow: 0 0 10px #fff;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>1C</h1>	
+        <h2>Лабораторная работа 5: Интеграция с внешними системами и обмен данными в 1С:Предприятие</h2>
+		<p>Выполнила студентка ЭФ 4-9 (Б), Кряквина Елена Сергеевна</p>		
+    </header>
+    <nav class="top-menu">
+        <a href="First page.html">Главная</a>
+    </nav>
+    <div class="sidebar">
+        <h3>Навигация</h3>
+        <a href="lecture1.html">Лекция 1</a>
+        <a href="lecture2.html">Лекция 2</a>
+        <a href="lecture3.html">Лекция 3</a>
+        <a href="lecture4.html">Лекция 4</a>
+        <a href="lecture5.html">Лекция 5</a>
+        <a href="lecture6.html">Лекция 6</a>
+        <a href="lecture7.html">Лекция 7</a>
+        <a href="lecture8.html">Лекция 8</a>
+        <a href="practice1.html">Практика 1</a>
+        <a href="practice2.html">Практика 2</a>
+        <a href="practice3.html">Практика 3</a>
+        <a href="practice4.html">Практика 4</a>
+        <a href="practice5.html">Практика 5</a>
+        <a href="test.html">Тестовые вопросы</a>
+    </div>
+    <main class="content">
+        <p>1.	Запустите 1С:Предприятие.</p>
+		<p>2.	Откройте конфигурацию, с которой будете работать (например, "Управление торговлей").</p>
+		<p>3.	Перейдите в "Конфигуратор".</p>
+		<p>4.	В дереве конфигурации найдите раздел "Модули".</p>
+		<p>5.	Щелкните правой кнопкой мыши на "Модули" и выберите "Создать модуль".</p>
+		<p>6.	Назовите модуль, например, "ИнтеграцияСистем".</p>
+		<p>7.	В модуле, который вы только что создали, добавьте код для подключения к внешней системе. Например, для работы с веб-сервисом:</p>
+		<p>ВебСервис = Новый </p>
+		<p>HTTPСоединение("http://адрес_вашего_веб_сервиса");</p>
+		<p>8.	Создайте функцию, которая будет получать данные из внешней системы:</p>
+		<p>Функция ПолучитьДанные()</p>
+		<p>Ответ = ВебСервис.Получить("путь_к_ресурсу");</p>
+		<p>Возврат Ответ;</p>
+		<p>КонецФункции</p>
+		<p>9.	Добавьте код для обработки данных, полученных из внешней системы:</p>
+		<p>Данные = ПолучитьДанные();</p>
+		<p>Если Данные <> Неопределено Тогда</p>
+		<p>    // Обработка данных</p>
+		<p>КонецЕсли;</p>
+		<p>10.	Создайте функцию для отправки данных во внешнюю систему:</p>
+		<p>Функция ОтправитьДанные(Данные)</p>
+		<p>Ответ = ВебСервис.Отправить("путь_к_ресурсу", Данные);</p>
+		<p>Возврат Ответ;</p>
+		<p>КонецФункции</p>
+		<p>11.	В "Конфигураторе" создайте новую обработку для тестирования функций.</p>
+		<p>12.	В обработке добавьте кнопку "Тестировать", которая будет вызывать функции получения и отправки данных.</p>
+		<p>13.	Перейдите в раздел "Формы" и создайте новую форму для вашей обработки.</p>
+		<p>14.	Добавьте элементы управления (кнопки, поля ввода) для взаимодействия с пользователем.</p>
+		<p>15.	Если необходимо, создайте подключение к базе данных:</p>
+		<p>Подключение = Новый </p>
+		<p>ПодключениеКБазеДанных("строка_подключения");</p>
+		<p>16.	Создайте функцию для выполнения SQL-запросов:</p>
+		<p>Функция ВыполнитьЗапрос(Запрос)</p>
+		<p>Результат = Подключение.Выполнить(Запрос);</p>
+		<p>    Возврат Результат;</p>
+		<p>КонецФункции</p>
+		<p>17.	В обработке добавьте кнопку для тестирования работы с базой данных.</p>
+		<p>18.	Напишите SQL-запрос и вызовите функцию ВыполнитьЗапрос.</p>
+		<p>19.	Добавьте обработку ошибок в ваши функции, чтобы избежать сбоев:</p>
+		<p>Попытка</p>
+		<p>// Ваш код</p>
+		<p>Исключение</p>
+		<p>Сообщить("Ошибка: " + ОписаниеОшибки());</p>
+		<p>КонецПопытки;</p>
+		<p>20.	Добавьте комментарии к вашему коду, чтобы было понятно, что делает каждая часть.</p>
+		<p>21.	Сохраните все изменения в конфигурации.</p>
+		<p>22.	Закройте "Конфигуратор".</p>
+		<p>23.	Подготовьте отчет о выполненной работе, включив в него описание всех шагов, которые вы выполнили, и результаты тестирования.</p>
+		<p>24.	Вернитесь в режим "Конфигуратор".</p>
+		<p>25.	В меню выберите "Файл" → "Создать резервную копию".</p>
+		<p>26.	Укажите место для сохранения резервной копии и нажмите "Сохранить".</p>
+		
+		
+        
+        <div class="nav-buttons">
+		<a href="practice4.html">Назад</a>
+            <a href="First page.html">Главная</a>
+            <a href="test.html">Далее</a>
+        </div>
+    </main>
+<!-- Модальное окно -->
+<div id="imgModal" class="modal">
+    <span class="close" id="modalClose">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const closeBtn = document.getElementById("modalClose");
+
+    // Получаем все изображения в .content
+    const images = document.querySelectorAll('.content img');
+
+    images.forEach(img => {
+        img.style.cursor = 'zoom-in'; // курсор увеличительного стекла
+        img.addEventListener('click', () => {
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        });
+    });
+
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // Закрытие модалки по клику вне изображения
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

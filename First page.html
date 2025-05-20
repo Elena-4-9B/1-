@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс: 1C</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Шапка */
+        header {
+            background-color: #F0E68C;
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+        /* Горизонтальное меню */
+        nav.top-menu {
+            background-color: #FFD700;
+            overflow: hidden;
+			position: relative; /* или absolute */
+			z-index: 10;
+        }
+        nav.top-menu a {
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav.top-menu a:hover {
+            background-color: #555;
+        }
+        /* Боковое меню */
+        .sidebar {
+            width: 200px;
+            background-color: #EEE8AA;
+            position: fixed;
+            top: 200px; /* высота шапки + топ-меню */
+            bottom: 0;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 12px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+        /* Основной контент */
+        .content {
+            margin-left: 220px; /* ширина sidebar + отступ */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 120px);
+        }
+        /* Кнопки */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .button-grid a {
+            display: block;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .button-grid a:hover {
+            background-color: #444;
+        }
+        .nav-buttons {
+            margin-top: 30px;
+        }
+        .nav-buttons a {
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .nav-buttons a:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>1C</h1>
+		<p>Выполнила студентка ЭФ 4-9 (Б), Кряквина Елена Сергеевна</p>		
+
+    </header>
+    <nav class="top-menu">
+        <a href="First page.html">Главная страница</a>
+    </nav>
+    <div class="sidebar">
+        <h3>Навигация</h3>
+        <a href="lecture1.html">Лекция 1</a>
+        <a href="lecture2.html">Лекция 2</a>
+        <a href="lecture3.html">Лекция 3</a>
+        <a href="lecture4.html">Лекция 4</a>
+        <a href="lecture5.html">Лекция 5</a>
+        <a href="lecture6.html">Лекция 6</a>
+        <a href="lecture7.html">Лекция 7</a>
+        <a href="lecture8.html">Лекция 8</a>
+        <a href="practice1.html">Практика 1</a>
+        <a href="practice2.html">Практика 2</a>
+        <a href="practice3.html">Практика 3</a>
+        <a href="practice4.html">Практика 4</a>
+        <a href="practice5.html">Практика 5</a>
+        <a href="test.html">Тестовые вопросы</a>
+    </div>
+    <main class="content">
+        <div class="button-grid">
+            <a href="lecture1.html">Лекция 1</a>
+            <a href="lecture2.html">Лекция 2</a>
+            <a href="lecture3.html">Лекция 3</a>
+            <a href="lecture4.html">Лекция 4</a>
+            <a href="lecture5.html">Лекция 5</a>
+            <a href="lecture6.html">Лекция 6</a>
+            <a href="lecture7.html">Лекция 7</a>
+            <a href="lecture8.html">Лекция 8</a>
+            <a href="practice1.html">Практика 1</a>
+            <a href="practice2.html">Практика 2</a>
+            <a href="practice3.html">Практика 3</a>
+            <a href="practice4.html">Практика 4</a>
+            <a href="practice5.html">Практика 5</a>
+            <a href="test.html">Тестовые вопросы</a>
+        </div>
+    </main>
+</body>
+</html>
